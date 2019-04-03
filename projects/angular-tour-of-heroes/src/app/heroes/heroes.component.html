@@ -7,20 +7,4 @@
   </li>
 </ul>
 
-<div *ngIf="selectedHero">
-  <h2>{{selectedHero.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{selectedHero.id}}</div>
-  <div><span>name: </span>{{selectedHero.name}}</div>
-  <div><span>altName: </span>{{selectedHero.altName}}</div>
-  <div><span>power: </span>{{selectedHero.power}}</div>
-
-  <div>
-    <input type="text" [(ngModel)]="selectedHero.name" placeholder="name"/>
-  </div>
-  <div>
-    <input type="text" [(ngModel)]="selectedHero.altName" placeholder="altName"/>
-  </div>
-  <div>
-    <input type="text" [(ngModel)]="selectedHero.power" placeholder="power"/>
-  </div>
-</div>
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
