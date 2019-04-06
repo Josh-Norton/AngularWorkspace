@@ -24,6 +24,7 @@ export class HeroesComponent implements OnInit {
 
   getHeroes(): void {
     this.heroSub = this.heroService.getHeroes()
+        //TODO Unsubscribe
         .subscribe(heroes => this.heroes = heroes);
   }
 
@@ -35,6 +36,13 @@ export class HeroesComponent implements OnInit {
       .subscribe(hero => {
         this.heroes.push(hero);
       })
+  }
+
+  delete(hero: Hero) {
+    this.heroes = this.heroes.filter(h => h !== hero);
+    this.heroService.deleteHero(hero)
+      //TODO Unsubscribe
+      .subscribe();
   }
 
 }
