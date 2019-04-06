@@ -1,4 +1,25 @@
 <h2>My Heroes</h2>
+<div>
+  <div>
+    <label>Hero name:
+      <input #heroName />
+    </label>
+  </div>
+  <div>
+    <label>Normal name:
+      <input #altName />
+    </label>
+  </div>
+  <div>
+    <label>Super powers:
+      <input #powers />
+    </label>
+  </div>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(heroName.value, altName.value, powers.value); heroName.value=''; altName.value=''; powers.value=''">
+    add
+  </button>
+</div>
 <ul class="heroes">
   <li *ngFor='let hero of heroes'>
     <a routerLink="/detail/{{hero.id}}">
